@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import me.diego.observer.Observer;
 import me.diego.observer.Subject;
+import me.diego.state.ConfirmedState;
 import me.diego.state.OrderState;
 
 public class Order implements Subject {
@@ -11,6 +12,12 @@ public class Order implements Subject {
 
   private OrderState currentState;
   private List<Observer> observers = new ArrayList<>();
+
+  public Order(String orderId, String restaurantName) {
+    this.orderId = orderId;
+    this.restaurantName = restaurantName;
+    this.currentState = new ConfirmedState();
+  }
 
   public void setState(OrderState state) {
     this.currentState = state;
