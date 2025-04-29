@@ -14,6 +14,6 @@ public class NotificationManager {
   }
 
   public void sendNotification(String userId, String message) {
-    System.out.println("[NOTIFICAÇÃO para %d]: %s".formatted(userId, message));
+    System.out.println("[NOTIFICAÇÃO para %s]: %s".formatted(userId, message));
   }
 }

@@ -26,6 +26,10 @@ public class Order implements Subject {
             .formatted(this.orderId, this.restaurantName, this.currentState.getDescription()));
   }
 
+  public void progressToNextState() {
+    this.currentState.nextState(this);
+  }
+
   @Override
   public void addObserver(Observer observer) {
     observers.add(observer);
