@@ -1,6 +1,6 @@
 package me.diego.notification;
 
-class NotificationManager {
+public class NotificationManager {
   private static NotificationManager instance;
 
   private NotificationManager() {}

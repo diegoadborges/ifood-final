@@ -2,7 +2,7 @@ package me.diego.state;
 
 import me.diego.domain.Order;
 
-class ConfirmedState implements OrderState {
+public class ConfirmedState implements OrderState {
   @Override
   public void nextState(Order order) {
     order.setState(new PreparingState());

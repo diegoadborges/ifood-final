@@ -2,7 +2,7 @@ package me.diego.state;
 
 import me.diego.domain.Order;
 
-class OnTheWayState implements OrderState {
+public class OnTheWayState implements OrderState {
 
   @Override
   public void nextState(Order order) {
