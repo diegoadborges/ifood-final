@@ -1,0 +1,19 @@
+package me.diego.notification;
+
+class NotificationManager {
+  private static NotificationManager instance;
+
+  private NotificationManager() {}
+
+  public static NotificationManager getInstance() {
+    if (instance == null) {
+      instance = new NotificationManager();
+    }
+
+    return instance;
+  }
+
+  public void sendNotification(String userId, String message) {
+    System.out.println("[NOTIFICAÇÃO para %d]: %s".formatted(userId, message));
+  }
+}
