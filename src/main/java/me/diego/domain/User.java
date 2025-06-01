@@ -17,7 +17,7 @@ public class User implements Observer {
 
   @Override
   public void update(Observable o, Object arg) {
-    this.lastNotification = this.name + ", status to pedido " + o.toString();
+    this.lastNotification = (String) arg;
   }
 
   public String getLastNotification() {

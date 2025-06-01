@@ -17,8 +17,7 @@ public class StandardOrderFactory implements OrderFactory {
 
   @Override
   public Order createOrder(String orderId, String restaurantName) {
-    var order = new Order(orderId, restaurantName);
-    System.out.println("Criando pedido padrão");
+    var order = new Order(orderId + "-STANDARD", restaurantName);
     return order;
   }
 }

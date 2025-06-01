@@ -15,6 +15,26 @@ public class Order extends Observable {
     this.state = ConfirmedState.getInstance();
   }
 
+  public boolean confirmed() {
+    return this.state.confirmed(this);
+  }
+
+  public boolean preparing() {
+    return this.state.preparing(this);
+  }
+
+  public boolean onTheWay() {
+    return this.state.onTheWay(this);
+  }
+
+  public boolean delivered() {
+    return this.state.delivered(this);
+  }
+
+  public boolean cancel() {
+    return this.state.cancel(this);
+  }
+
   public void setState(OrderState state) {
     this.state = state;
     this.setChanged();
