@@ -1,19 +1,27 @@
 package me.diego.domain;
 
-import me.diego.notification.NotificationManager;
-import me.diego.observer.Observer;
+import java.util.Observable;
+import java.util.Observer;
 
 public class User implements Observer {
-  private String userId, name;
+  private String userId, name, lastNotification;
 
   public User(String userId, String name) {
     this.userId = userId;
     this.name = name;
   }
 
+  public void placeOrder(Order order) {
+    order.addObserver(this);
+  }
+
   @Override
-  public void update(String message) {
-    NotificationManager.getInstance().sendNotification(this.userId, message);
+  public void update(Observable o, Object arg) {
+    this.lastNotification = this.name + ", status to pedido " + o.toString();
+  }
+
+  public String getLastNotification() {
+    return this.lastNotification;
   }
 
   public String getUserId() {

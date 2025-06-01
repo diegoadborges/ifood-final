@@ -1,12 +1,15 @@
 package me.diego.state;
 
-import me.diego.domain.Order;
 
-public class DeliveredState implements OrderState {
+public class DeliveredState extends OrderState {
 
-  @Override
-  public void nextState(Order order) {
-    System.out.println("Pedido entregue, não há próximo estado");
+  DeliveredState() {}
+  ;
+
+  private static DeliveredState instance = new DeliveredState();
+
+  public static DeliveredState getInstance() {
+    return instance;
   }
 
   @Override

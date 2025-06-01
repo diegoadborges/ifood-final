@@ -1,12 +1,15 @@
 package me.diego.state;
 
-import me.diego.domain.Order;
 
-public class OnTheWayState implements OrderState {
+public class OnTheWayState extends OrderState {
 
-  @Override
-  public void nextState(Order order) {
-    order.setState(new DeliveredState());
+  OnTheWayState() {}
+  ;
+
+  private static OnTheWayState instance = new OnTheWayState();
+
+  public static OnTheWayState getInstance() {
+    return instance;
   }
 
   @Override

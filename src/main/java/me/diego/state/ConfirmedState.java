@@ -2,10 +2,27 @@ package me.diego.state;
 
 import me.diego.domain.Order;
 
-public class ConfirmedState implements OrderState {
+public class ConfirmedState extends OrderState {
+
+  ConfirmedState() {}
+  ;
+
+  private static ConfirmedState instance = new ConfirmedState();
+
+  public static ConfirmedState getInstance() {
+    return instance;
+  }
+
   @Override
-  public void nextState(Order order) {
-    order.setState(new PreparingState());
+  public boolean cancel(Order order) {
+    order.setState(CancelledState.getInstance());
+    return true;
+  }
+
+  @Override
+  public boolean preparing(Order order) {
+    order.setState(PreparingState.getInstance());
+    return true;
   }
 
   @Override
