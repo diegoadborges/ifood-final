@@ -71,6 +71,14 @@ public abstract class Order extends Observable {
     this.discountStrategy = discountStrategy;
   }
 
+  public String getDescription() {
+    return this.ingredient.getDescription();
+  }
+
+  public void setIngredient(Ingredient ingredient) {
+    this.ingredient = ingredient;
+  }
+
   public double getFinalAmount() {
     var totalAmount = this.ingredient.getPrice();
     double discount = discountStrategy.calculateDiscount(totalAmount);
