@@ -6,7 +6,7 @@ import me.diego.state.ConfirmedState;
 import me.diego.state.OrderState;
 import me.diego.strategy.DiscountStrategy;
 
-public class Order extends Observable {
+public abstract class Order extends Observable {
   private String orderId, restaurantName;
 
   private DiscountStrategy discountStrategy;
@@ -65,6 +65,10 @@ public class Order extends Observable {
 
   public OrderState getState() {
     return state;
+  }
+
+  public void setDiscount(DiscountStrategy discountStrategy) {
+    this.discountStrategy = discountStrategy;
   }
 
   public double getFinalAmount() {
