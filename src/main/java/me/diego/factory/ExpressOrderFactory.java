@@ -1,6 +1,8 @@
 package me.diego.factory;
 
 import me.diego.domain.Order;
+import me.diego.ingredients.Ingredient;
+import me.diego.strategy.DiscountStrategy;
 
 public class ExpressOrderFactory implements OrderFactory {
   private static ExpressOrderFactory instance;
@@ -16,8 +18,12 @@ public class ExpressOrderFactory implements OrderFactory {
   }
 
   @Override
-  public Order createOrder(String orderId, String restaurantName) {
-    var order = new Order(orderId + "-EXPRESS", restaurantName);
+  public Order createOrder(
+      String orderId,
+      String restaurantName,
+      DiscountStrategy discountStrategy,
+      Ingredient ingredient) {
+    var order = new Order(orderId + "-EXPRESS", restaurantName, discountStrategy, ingredient);
     return order;
   }
 }

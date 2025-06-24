@@ -6,6 +6,8 @@ import me.diego.domain.Order;
 import me.diego.domain.User;
 import me.diego.factory.ExpressOrderFactory;
 import me.diego.factory.StandardOrderFactory;
+import me.diego.ingredients.pizza.PepperoniPizza;
+import me.diego.strategy.NoDiscount;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,9 +20,15 @@ public class DeliveryTest {
   void setUp() {
     this.restaurantName = "restaurant1";
     this.orderId = "0001";
+    var noDiscount = new NoDiscount();
+    var ingredients = new PepperoniPizza();
 
-    this.standardOrder = StandardOrderFactory.getInstance().createOrder(orderId, restaurantName);
-    this.expressOrder = ExpressOrderFactory.getInstance().createOrder(orderId, restaurantName);
+    this.standardOrder =
+        StandardOrderFactory.getInstance()
+            .createOrder(orderId, restaurantName, noDiscount, ingredients);
+    this.expressOrder =
+        ExpressOrderFactory.getInstance()
+            .createOrder(orderId, restaurantName, noDiscount, ingredients);
     this.user = new User("#0001", "user1");
   }
 
